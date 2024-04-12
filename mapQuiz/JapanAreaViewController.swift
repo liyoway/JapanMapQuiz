@@ -62,6 +62,7 @@ class JapanAreaViewController: UIViewController {
         AreaName(kannji: "沖縄県", alpha: "map-okinawa.png")
     ]
     var answerButtonIndex = [0, 1, 2, 3]
+    var (wrong, correct) = (0, 0)
 
 
     override func viewDidLoad() {
@@ -71,9 +72,9 @@ class JapanAreaViewController: UIViewController {
         image.image = UIImage(named:imageString)
         answerButtonIndex.shuffle()
         var count = 0
-        for i in AnswerButton {
-            i.setTitle(JapanAreas[answerButtonIndex[count]].kannji, for: .normal)
-            i.titleLabel?.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
+        for alpha in AnswerButton {
+            alpha.setTitle(JapanAreas[answerButtonIndex[count]].kannji, for: .normal)
+            alpha.titleLabel?.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
             count += 1
             }
         
@@ -82,8 +83,19 @@ class JapanAreaViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func choseAnswer(_ sender: UIButton) {
+        let imageString = JapanAreas[correct].alpha
+        if sender.title(for: .selected) == imageString {
+            correct += 1
+//            nextQuestion()
+        } else {
+            if wrong < 3 {
+                wrongCount.setTitle("❌", forSegmentAt: wrong)
+                wrong += 1
+            }
+        }
+    }
     
-
     /*
     // MARK: - Navigation
 
