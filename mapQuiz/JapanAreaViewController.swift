@@ -9,9 +9,10 @@ import UIKit
 
 class JapanAreaViewController: UIViewController {
     
+    @IBOutlet var AnswerButton: [UIButton]!
     @IBOutlet weak var wrongCount: UISegmentedControl!
     @IBOutlet weak var image: UIImageView!
-    let JapanAreas = [
+    var JapanAreas = [
         AreaName(kannji: "北海道", alpha: "map-hokkaido.png"),
         AreaName(kannji: "青森県", alpha: "map-aomori.png"),
         AreaName(kannji: "岩手県", alpha: "map-iwate.png"),
@@ -60,10 +61,24 @@ class JapanAreaViewController: UIViewController {
         AreaName(kannji: "鹿児島県", alpha: "map-kagoshima.png"),
         AreaName(kannji: "沖縄県", alpha: "map-okinawa.png")
     ]
+    var answerButtonIndex = [0, 1, 2, 3]
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        JapanAreas.shuffle()
+        let imageString = JapanAreas.first!.alpha
+        image.image = UIImage(named:imageString)
+        answerButtonIndex.shuffle()
+        var count = 0
+        for i in AnswerButton {
+            i.setTitle(JapanAreas[answerButtonIndex[count]].kannji, for: .normal)
+            i.titleLabel?.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
+            count += 1
+            }
+        
+        
+//        wrongCount.setTitle("❌", forSegmentAt: 0)
 
         // Do any additional setup after loading the view.
     }

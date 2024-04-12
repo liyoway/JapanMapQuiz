@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct AreaName {
+    let kannji: String
+    let alpha: String
+}

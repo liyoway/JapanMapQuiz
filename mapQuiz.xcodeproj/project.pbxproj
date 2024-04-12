@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		145204262BC6F15C00784EFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145204252BC6F15C00784EFC /* AppDelegate.swift */; };
 		145204282BC6F15C00784EFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145204272BC6F15C00784EFC /* SceneDelegate.swift */; };
-		1452042A2BC6F15C00784EFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145204292BC6F15C00784EFC /* ViewController.swift */; };
 		1452042D2BC6F15C00784EFC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1452042C2BC6F15C00784EFC /* Base */; };
 		1452042F2BC6F15D00784EFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1452042E2BC6F15D00784EFC /* Assets.xcassets */; };
 		145204322BC6F15D00784EFC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 145204312BC6F15D00784EFC /* Base */; };
+		1452043A2BC6F28B00784EFC /* AreaName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145204392BC6F28B00784EFC /* AreaName.swift */; };
+		1452043C2BC81C5800784EFC /* JapanAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452043B2BC81C5800784EFC /* JapanAreaViewController.swift */; };
+		1452043E2BC81FBC00784EFC /* function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452043D2BC81FBC00784EFC /* function.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		145204222BC6F15C00784EFC /* mapQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		145204252BC6F15C00784EFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		145204272BC6F15C00784EFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		145204292BC6F15C00784EFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1452042C2BC6F15C00784EFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1452042E2BC6F15D00784EFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		145204312BC6F15D00784EFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		145204332BC6F15D00784EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		145204392BC6F28B00784EFC /* AreaName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaName.swift; sourceTree = "<group>"; };
+		1452043B2BC81C5800784EFC /* JapanAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanAreaViewController.swift; sourceTree = "<group>"; };
+		1452043D2BC81FBC00784EFC /* function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = function.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,9 @@
 			children = (
 				145204252BC6F15C00784EFC /* AppDelegate.swift */,
 				145204272BC6F15C00784EFC /* SceneDelegate.swift */,
-				145204292BC6F15C00784EFC /* ViewController.swift */,
+				145204392BC6F28B00784EFC /* AreaName.swift */,
+				1452043B2BC81C5800784EFC /* JapanAreaViewController.swift */,
+				1452043D2BC81FBC00784EFC /* function.swift */,
 				1452042B2BC6F15C00784EFC /* Main.storyboard */,
 				1452042E2BC6F15D00784EFC /* Assets.xcassets */,
 				145204302BC6F15D00784EFC /* LaunchScreen.storyboard */,
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1452042A2BC6F15C00784EFC /* ViewController.swift in Sources */,
 				145204262BC6F15C00784EFC /* AppDelegate.swift in Sources */,
 				145204282BC6F15C00784EFC /* SceneDelegate.swift in Sources */,
+				1452043C2BC81C5800784EFC /* JapanAreaViewController.swift in Sources */,
+				1452043A2BC6F28B00784EFC /* AreaName.swift in Sources */,
+				1452043E2BC81FBC00784EFC /* function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
