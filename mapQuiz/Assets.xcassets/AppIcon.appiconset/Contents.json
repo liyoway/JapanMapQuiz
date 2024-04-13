@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "map_family_shinken.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
