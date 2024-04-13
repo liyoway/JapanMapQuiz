@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct IndexStruct {
+    var answerButtonIndex: [Int]
+    var (wrong, correct) = (0, 0)
+}

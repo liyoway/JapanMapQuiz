@@ -60,8 +60,15 @@
                                     <action selector="choseAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LTG-Ls-KfX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ja8-AR-Hby">
+                                <rect key="frame" x="143" y="418" width="108" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="MzR-dB-fuU">
-                                <rect key="frame" x="114" y="418" width="166" height="32"/>
+                                <rect key="frame" x="113" y="461" width="166" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="" enabled="NO"/>
@@ -74,17 +81,34 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="correctCount" destination="Ja8-AR-Hby" id="L3i-LB-jkx"/>
                         <outlet property="image" destination="RWA-gW-50P" id="eei-IJ-BEy"/>
                         <outlet property="wrongCount" destination="MzR-dB-fuU" id="yiX-cc-tnZ"/>
-                        <outletCollection property="AnswerButton" destination="yes-8s-siD" collectionClass="NSMutableArray" id="Qwj-Qk-Ca1"/>
-                        <outletCollection property="AnswerButton" destination="9Os-Zs-Py7" collectionClass="NSMutableArray" id="RFj-fh-MmL"/>
-                        <outletCollection property="AnswerButton" destination="MQ6-8j-AKC" collectionClass="NSMutableArray" id="8Ly-Gc-tzf"/>
-                        <outletCollection property="AnswerButton" destination="Rpa-z9-bzF" collectionClass="NSMutableArray" id="UYe-8a-vEL"/>
+                        <outletCollection property="answerButton" destination="yes-8s-siD" collectionClass="NSMutableArray" id="Qwj-Qk-Ca1"/>
+                        <outletCollection property="answerButton" destination="9Os-Zs-Py7" collectionClass="NSMutableArray" id="RFj-fh-MmL"/>
+                        <outletCollection property="answerButton" destination="MQ6-8j-AKC" collectionClass="NSMutableArray" id="8Ly-Gc-tzf"/>
+                        <outletCollection property="answerButton" destination="Rpa-z9-bzF" collectionClass="NSMutableArray" id="UYe-8a-vEL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="129.00763358778624" y="-2.1126760563380285"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="qGY-Ap-S5E">
+            <objects>
+                <viewController id="kyz-Y2-uUm" customClass="ResultViewController" customModule="mapQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s0J-vy-033">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1MV-v8-9fz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nqv-9I-D4e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5rH-uk-QVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="993" y="-2"/>
         </scene>
     </scenes>
     <resources>

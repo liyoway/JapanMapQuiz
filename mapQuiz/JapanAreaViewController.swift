@@ -9,7 +9,8 @@ import UIKit
 
 class JapanAreaViewController: UIViewController {
     
-    @IBOutlet var AnswerButton: [UIButton]!
+    @IBOutlet weak var correctCount: UILabel!
+    @IBOutlet var answerButton: [UIButton]!
     @IBOutlet weak var wrongCount: UISegmentedControl!
     @IBOutlet weak var image: UIImageView!
     var JapanAreas = [
@@ -61,41 +62,46 @@ class JapanAreaViewController: UIViewController {
         AreaName(kannji: "鹿児島県", alpha: "map-kagoshima.png"),
         AreaName(kannji: "沖縄県", alpha: "map-okinawa.png")
     ]
-    var answerButtonIndex = [0, 1, 2, 3]
-    var (wrong, correct) = (0, 0)
+    var answerButtonIndex: IndexStruct = .init(answerButtonIndex: [0, 1, 2, 3], wrong: 0, correct: 0)
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        JapanAreas.shuffle()
-        let imageString = JapanAreas.first!.alpha
-        image.image = UIImage(named:imageString)
-        answerButtonIndex.shuffle()
+        JapanAreas.shuffle() /*打亂地圖*/
+        correctCount.text = "正解：\(answerButtonIndex.correct)"
+        correctCount.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
+        let imageString = JapanAreas.first!.alpha //地圖名字
+        image.image = UIImage(named:imageString) //叫圖片出來
+        answerButtonIndex.answerButtonIndex.shuffle() //把index打亂
         var count = 0
-        for alpha in AnswerButton {
-            alpha.setTitle(JapanAreas[answerButtonIndex[count]].kannji, for: .normal)
+        for alpha in answerButton {
+            alpha.setTitle(JapanAreas[answerButtonIndex.answerButtonIndex[count]].kannji, for: .normal)
             alpha.titleLabel?.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
             count += 1
             }
+        //設定一開始選項的文字
         
-        
-//        wrongCount.setTitle("❌", forSegmentAt: 0)
-
         // Do any additional setup after loading the view.
     }
     @IBAction func choseAnswer(_ sender: UIButton) {
-        let imageString = JapanAreas[correct].alpha
-        if sender.title(for: .selected) == imageString {
-            correct += 1
-//            nextQuestion()
+        let imageString = JapanAreas[answerButtonIndex.correct + answerButtonIndex.wrong].kannji
+        print(imageString)
+        if sender.title(for: .normal) == imageString {
+            answerButtonIndex.correct += 1
+            nextQuestion(index: answerButtonIndex, image: image, area: JapanAreas, button: answerButton, correctCount: correctCount)
         } else {
-            if wrong < 3 {
-                wrongCount.setTitle("❌", forSegmentAt: wrong)
-                wrong += 1
+            if answerButtonIndex.wrong < 3 {
+                wrongCount.setTitle("❌", forSegmentAt: answerButtonIndex.wrong)
+                answerButtonIndex.wrong += 1
+                nextQuestion(index: answerButtonIndex, image: image, area: JapanAreas, button: answerButton, correctCount: correctCount)
             }
         }
     }
     
+    @IBSegueAction func showResult(_ coder: NSCoder) -> ResultViewController? {
+        let controller = ResultViewController(coder: coder)
+        return controller
+    }
     /*
     // MARK: - Navigation
 
