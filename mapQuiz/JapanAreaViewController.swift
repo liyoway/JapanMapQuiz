@@ -88,29 +88,40 @@ class JapanAreaViewController: UIViewController {
         let imageString = JapanAreas[answerButtonIndex.correct + answerButtonIndex.wrong].kannji
         print(imageString)
         if sender.title(for: .normal) == imageString {
+            // 正確答案
             answerButtonIndex.correct += 1
-            nextQuestion(index: answerButtonIndex, image: image, area: JapanAreas, button: answerButton, correctCount: correctCount)
+            if answerButtonIndex.correct == 47 {
+                // 如果正確次數達到 47 次，立即跳轉
+                performSegue(withIdentifier: "showResult", sender: nil)
+            } else {
+                // 繼續到下一題
+                nextQuestion(index: answerButtonIndex, image: image, area: JapanAreas, button: answerButton, correctCount: correctCount)
+            }
         } else {
-            if answerButtonIndex.wrong < 3 {
+            // 錯誤答案
+            if answerButtonIndex.wrong < 2 { // 錯誤次數未達到 3 次
                 wrongCount.setTitle("❌", forSegmentAt: answerButtonIndex.wrong)
                 answerButtonIndex.wrong += 1
                 nextQuestion(index: answerButtonIndex, image: image, area: JapanAreas, button: answerButton, correctCount: correctCount)
+            } else if answerButtonIndex.wrong == 2 {
+                // 第三次錯誤，立即跳轉
+                wrongCount.setTitle("❌", forSegmentAt: answerButtonIndex.wrong)
+                answerButtonIndex.wrong += 1
+                performSegue(withIdentifier: "showResult", sender: nil)
             }
-        }
-    }
+        }    }
 
     @IBAction func buttonTap(_ sender: Any) {
         if answerButtonIndex.wrong == 3 || answerButtonIndex.correct == 47 {
             performSegue(withIdentifier: "showResult", sender: nil)
         }
     }
-
-    @IBSegueAction func showResultController(_ coder: NSCoder) -> ResultViewController? {
+        
+    @IBSegueAction func showResultViewController(_ coder: NSCoder) -> ResultViewController? {
         let controller = ResultViewController(coder: coder)
         controller?.result = answerButtonIndex
         return controller
     }
-    
     /*
     // MARK: - Navigation
 

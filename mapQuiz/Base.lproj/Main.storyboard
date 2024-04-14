@@ -92,7 +92,7 @@
                         <outletCollection property="answerButton" destination="9Os-Zs-Py7" collectionClass="NSMutableArray" id="RFj-fh-MmL"/>
                         <outletCollection property="answerButton" destination="MQ6-8j-AKC" collectionClass="NSMutableArray" id="8Ly-Gc-tzf"/>
                         <outletCollection property="answerButton" destination="Rpa-z9-bzF" collectionClass="NSMutableArray" id="UYe-8a-vEL"/>
-                        <segue destination="kyz-Y2-uUm" kind="show" identifier="showResult" id="Y1o-02-fQf"/>
+                        <segue destination="kyz-Y2-uUm" kind="show" identifier="showResult" destinationCreationSelector="showResultViewController:" id="Y1o-02-fQf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
