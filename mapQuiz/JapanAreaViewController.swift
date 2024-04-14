@@ -83,6 +83,7 @@ class JapanAreaViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+        
     @IBAction func choseAnswer(_ sender: UIButton) {
         let imageString = JapanAreas[answerButtonIndex.correct + answerButtonIndex.wrong].kannji
         print(imageString)
@@ -97,11 +98,19 @@ class JapanAreaViewController: UIViewController {
             }
         }
     }
-    
-    @IBSegueAction func showResult(_ coder: NSCoder) -> ResultViewController? {
+
+    @IBAction func buttonTap(_ sender: Any) {
+        if answerButtonIndex.wrong == 3 || answerButtonIndex.correct == 47 {
+            performSegue(withIdentifier: "showResult", sender: nil)
+        }
+    }
+
+    @IBSegueAction func showResultController(_ coder: NSCoder) -> ResultViewController? {
         let controller = ResultViewController(coder: coder)
+        controller?.result = answerButtonIndex
         return controller
     }
+    
     /*
     // MARK: - Navigation
 
