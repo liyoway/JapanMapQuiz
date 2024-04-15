@@ -42,3 +42,16 @@ func nextQuestion(index: IndexStruct, image: UIImageView!, area: [AreaName], but
     correctCount.text = "正解：\(index.correct)"
     
 }
+
+func reset(country: [AreaName], correctCount: UILabel!, answerButtonIndex: IndexStruct, image: UIImageView!, answerButton: [UIButton]!) {
+    correctCount.text = "正解：\(answerButtonIndex.correct)"
+    correctCount.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
+    let imageString = country.first!.alpha //地圖名字
+    image.image = UIImage(named:imageString) //叫圖片出來
+    var count = 0
+    for alpha in answerButton {
+        alpha.setTitle(country[answerButtonIndex.answerButtonIndex[count]].kannji, for: .normal)
+        alpha.titleLabel?.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
+        count += 1
+    }
+}

@@ -67,20 +67,10 @@ class JapanAreaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         JapanAreas.shuffle() /*打亂地圖*/
-        correctCount.text = "正解：\(answerButtonIndex.correct)"
-        correctCount.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
-        let imageString = JapanAreas.first!.alpha //地圖名字
-        image.image = UIImage(named:imageString) //叫圖片出來
         answerButtonIndex.answerButtonIndex.shuffle() //把index打亂
-        var count = 0
-        for alpha in answerButton {
-            alpha.setTitle(JapanAreas[answerButtonIndex.answerButtonIndex[count]].kannji, for: .normal)
-            alpha.titleLabel?.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
-            count += 1
-            }
-        //設定一開始選項的文字
-        
+        reset(country: JapanAreas, correctCount: correctCount, answerButtonIndex: answerButtonIndex, image: image, answerButton: answerButton)
         // Do any additional setup after loading the view.
     }
         
