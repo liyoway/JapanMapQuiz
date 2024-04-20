@@ -24,7 +24,7 @@ class JapanAreaViewController: UIViewController {
         AreaName(kannji: "茨城県", alpha: "map-ibaraki.png"),
         AreaName(kannji: "栃木県", alpha: "map-tochigi.png"),
         AreaName(kannji: "群馬県", alpha: "map-gunma.png"),
-        AreaName(kannji: "埼玉県", alpha: "map-saitama.png"),
+        AreaName(kannji: "埼玉県", alpha: "map-saitaama.png"),
         AreaName(kannji: "千葉県", alpha: "map-chiba.png"),
         AreaName(kannji: "東京都", alpha: "map-tokyo.png"),
         AreaName(kannji: "神奈川県", alpha: "map-kanagawa.png"),
@@ -66,12 +66,29 @@ class JapanAreaViewController: UIViewController {
 
 
     override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.navigationItem.hidesBackButton = true
+//        JapanAreas.shuffle() /*打亂地圖*/
+//        answerButtonIndex.answerButtonIndex.shuffle() //把index打亂
+//        reset(country: JapanAreas, correctCount: correctCount, answerButtonIndex: answerButtonIndex, image: image, answerButton: answerButton)
+//        // Do any additional setup after loading the view.
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        JapanAreas.shuffle() /*打亂地圖*/
-        answerButtonIndex.answerButtonIndex.shuffle() //把index打亂
-        reset(country: JapanAreas, correctCount: correctCount, answerButtonIndex: answerButtonIndex, image: image, answerButton: answerButton)
-        // Do any additional setup after loading the view.
+
+        // 確認 JapanAreas 是否已經初始化
+        if !JapanAreas.isEmpty {
+            JapanAreas.shuffle() /*打亂地圖*/
+        }
+
+        // 確認 answerButtonIndex.answerButtonIndex 是否已經初始化
+        if !answerButtonIndex.answerButtonIndex.isEmpty {
+            answerButtonIndex.answerButtonIndex.shuffle() //把index打亂
+        }
+
+        // 確保所有涉及的 optional 參數在傳遞之前不是 nil
+        if let correctCount = correctCount, let image = image, !answerButton.isEmpty {
+            reset(country: JapanAreas, correctCount: correctCount, answerButtonIndex: answerButtonIndex, image: image, answerButton: answerButton)
+        }
     }
         
     @IBAction func choseAnswer(_ sender: UIButton) {

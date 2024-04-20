@@ -43,15 +43,39 @@ func nextQuestion(index: IndexStruct, image: UIImageView!, area: [AreaName], but
     
 }
 
-func reset(country: [AreaName], correctCount: UILabel!, answerButtonIndex: IndexStruct, image: UIImageView!, answerButton: [UIButton]!) {
-    correctCount.text = "正解：\(answerButtonIndex.correct)"
-    correctCount.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
-    let imageString = country.first!.alpha //地圖名字
-    image.image = UIImage(named:imageString) //叫圖片出來
-    var count = 0
-    for alpha in answerButton {
-        alpha.setTitle(country[answerButtonIndex.answerButtonIndex[count]].kannji, for: .normal)
-        alpha.titleLabel?.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
-        count += 1
+//func reset(country: [AreaName], correctCount: UILabel!, answerButtonIndex: IndexStruct, image: UIImageView!, answerButton: [UIButton]) {
+//    if let correctCount.text {
+//        correctCount.text = "正解：\(answerButtonIndex.correct)"
+//    }
+//    correctCount.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
+//    let imageString = country.first!.alpha //地圖名字
+//    image.image = UIImage(named:imageString) //叫圖片出來
+//    var count = 0
+//    for alpha in answerButton {
+//        alpha.setTitle(country[answerButtonIndex.answerButtonIndex[count]].kannji, for: .normal)
+//        alpha.titleLabel?.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
+//        count += 1
+//    }
+//}
+
+func reset(country: [AreaName], correctCount: UILabel?, answerButtonIndex: IndexStruct, image: UIImageView?, answerButton: [UIButton]) {
+    if let label = correctCount {
+        label.text = "正解：\(answerButtonIndex.correct)"
+        label.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
+    }
+
+    if let firstCountry = country.first, let imageView = image {
+        let imageString = firstCountry.alpha //地圖名字
+        imageView.image = UIImage(named: imageString) //叫圖片出來
+    }
+
+    for (index, button) in answerButton.enumerated() {
+        if index < country.count && index < answerButtonIndex.answerButtonIndex.count {
+            let countryIndex = answerButtonIndex.answerButtonIndex[index]
+            if countryIndex < country.count {
+                button.setTitle(country[countryIndex].kannji, for: .normal)
+                button.titleLabel?.font = UIFont(name: "HiraMaruProN-W4", size: 25.0)
+            }
+        }
     }
 }

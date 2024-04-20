@@ -35,7 +35,12 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func tryAgain(_ sender: Any) {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "JapanAreaViewController") as? JapanAreaViewController {
+            show(controller, sender: sender as? UIButton)
+        }        
+    }
+    
     /*
     // MARK: - Navigation
 
